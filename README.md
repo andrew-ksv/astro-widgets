@@ -1,2 +1,2 @@
-# astro-widgets
+# Astro Widgets
  
