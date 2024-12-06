@@ -1,0 +1,41 @@
+body {
+    background: radial-gradient(at center top, #1B2735, #090A0F);
+    /* background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); */
+
+    margin: 0;
+    height: 100vh; /* body займає всю висоту екрану */
+    overflow: hidden;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8; /*Прозорість елемента*/
+    /* animation: float 10s infinite linear; */
+}
+
+/* @keyframes float {
+    0% {
+        transform: translate(0, 0);
+         Початковий стан
+    }
+    50% {
+        transform: translate(-20px, 15px);
+        50% анімації:
+           - Елемент зсувається на -20px по осі X (вліво)
+           - Елемент зсувається на +15px по осі Y (вниз)
+    }
+    100% {
+        transform: translate(0, 0);
+         Елемент повертається у початкову позицію
+    }
+} */
