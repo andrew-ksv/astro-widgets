@@ -44,10 +44,13 @@ body {
     border-radius: 8px; /* Скруглені краї */
     position: relative;
     z-index: 1; 
-    width: 200px;
-    height: 100px;
-    background-image: linear-gradient(to right, #2c324e, #23354a);
+    width: 400px;
+    height: 200px;
+    /* background-image: linear-gradient(to right, #2c324e, #23354a); */
+    /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
+    background-image: linear-gradient( 109.6deg, rgb(52, 101, 101) 11.2%, rgb(51, 57, 100) 91.1% );
     box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
+    margin-left: 2%;
 }
 
 .stars {
