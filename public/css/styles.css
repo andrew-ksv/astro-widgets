@@ -4,7 +4,10 @@ body {
 
     margin: 0;
     height: 100vh; /* body займає всю висоту екрану */
-    overflow: hidden;
+    /* overflow: hidden; */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    
 }
 
 .navbar {

@@ -1,5 +1,4 @@
 "use strict";
-console.log("Hello");
 
 const numStars = 100; //Кількість зірок
 const starsContainer = document.getElementById('stars');
