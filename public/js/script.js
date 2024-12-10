@@ -16,3 +16,36 @@ for (let i = 0; i < numStars; i++) {
 
     starsContainer.appendChild(star); //Додаємо зірки в контейнер .stars
 }
+
+// Фази місяця🌕
+const moonPhases = {
+    "New Moon": "🌑",
+    "Waxing Crescent": "🌒",
+    "First Quarter": "🌓",
+    "Waxing Gibbous": "🌔",
+    "Full Moon": "🌕",
+    "Waning Gibbous": "🌖",
+    "Last Quarter": "🌗",
+    "Waning Crescent": "🌘",
+  };
+  
+  async function fetchMoonData() {
+    try {
+      const response = await fetch('/api/moon');
+      const data = await response.json();
+  
+      const { moon_phase } = data.astronomy.astro;
+  
+      const phaseElement = document.getElementById('moon-phase');
+      const iconElement = document.getElementById('moon-icon');
+  
+      phaseElement.textContent = `Phase: ${moon_phase}`;
+      iconElement.textContent = moonPhases[moon_phase] || "❓";
+      iconElement.style.display = 'block';
+    } catch (error) {
+      document.getElementById('moon-phase').textContent = 'Data loading error.';
+      console.error('Error:', error);
+    }
+  }
+  
+  fetchMoonData();
