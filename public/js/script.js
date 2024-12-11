@@ -38,10 +38,17 @@ const moonPhases = {
   
       const phaseElement = document.getElementById('moon-phase');
       const iconElement = document.getElementById('moon-icon');
+      const moonRise = document.getElementById('moonrise');
+      const moonSet = document.getElementById('moonset');
+      const city = document.getElementById('city');
   
       phaseElement.textContent = `Phase: ${moon_phase}`;
       iconElement.textContent = moonPhases[moon_phase] || "❓";
       iconElement.style.display = 'block';
+      moonRise.textContent = `Moon rise: ${data.astronomy.astro.moonrise}`;
+      moonSet.textContent = `Moon set: ${data.astronomy.astro.moonset}`;
+      city.textContent = `Current location: ${data.location.name}`
+
     } catch (error) {
       document.getElementById('moon-phase').textContent = 'Data loading error.';
       console.error('Error:', error);

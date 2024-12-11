@@ -43,7 +43,7 @@ body {
     height: auto;
 }
 
-.widget-moon {
+.widget {
     border-radius: 8px; /* Скруглені краї */
     position: relative;
     z-index: 1; 
@@ -56,19 +56,42 @@ body {
     margin-top: 2%;
     margin-left: 2%;
 
-    font-size: 2.3ch;
+    font-size: 2.1ch;
     font-family: sans-serif;
 }
 
 /* Фази місяця🌕 */
-.widget-moon #moon-container {
+.widget #moon-container {
     padding-top: 1%;
     padding-left: 5%;
+   
 }
 
 /* #moon-phase {
     margin: 20px 0;
 } */
+
+.moon-title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.7ch;
+}
+
+#moon-details {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.moon-times {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.moon-times p {
+    margin: 5px;
+    padding: 0;
+}
 
 .icon {
     font-size: 2rem; /* Розмір емодзі */
