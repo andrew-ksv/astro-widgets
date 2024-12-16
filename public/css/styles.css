@@ -1,15 +1,12 @@
 body {
     background: radial-gradient(at center top, #1B2735, #090A0F);
     /* background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); */
-
     margin: 0;
     height: 100vh; /* body займає всю висоту екрану */
     /* overflow: hidden; */
     background-size: cover; 
     background-repeat: no-repeat;
-    
 }
-
 .navbar {
     display: flex;
     justify-content: center;
@@ -17,7 +14,6 @@ body {
     margin: 0 auto;
     margin-top: 1%;
 }
-
 .menu {
     border: 1px solid rgb(89, 89, 89); /* Рамка */
     border-radius: 30px; /* Скруглені краї */
@@ -25,7 +21,6 @@ body {
     width: 25%;
     text-align: center;
 }
-
 .menu a {
     text-decoration: none;
     color: rgb(201, 200, 200);
@@ -33,16 +28,29 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 10px;
 }
-
 .menu a:hover {
     color: rgb(255, 255, 255);
 }
-
 .planet {
     width: 4%;
     height: auto;
 }
-
+.stars {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8; /*Прозорість елемента*/
+    /* animation: float 10s infinite linear; */
+}
 .widget {
     border-radius: 8px; /* Скруглені краї */
     position: relative;
@@ -59,63 +67,35 @@ body {
     font-size: 2.1ch;
     font-family: sans-serif;
 }
-
-/* Фази місяця🌕 */
+/* Фази місяця🌕 ------------------------------------------------------------------------*/
 .widget #moon-container {
     padding-top: 1%;
     padding-left: 5%;
-   
 }
-
 /* #moon-phase {
     margin: 20px 0;
 } */
-
 .moon-title {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.7ch;
 }
-
 #moon-details {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
 .moon-times {
     display: flex;
     flex-direction: column;
-    
 }
-
 .moon-times p {
     margin: 5px;
     padding: 0;
 }
-
 .icon {
     font-size: 2rem; /* Розмір емодзі */
 }
-
-.stars {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8; /*Прозорість елемента*/
-    /* animation: float 10s infinite linear; */
-}
-
-/* Анімація зірок ✨ */
+/* Анімація зірок ✨ ------------------------------------------------------------------------*/
 /* @keyframes float {
     0% {
         transform: translate(0, 0);
