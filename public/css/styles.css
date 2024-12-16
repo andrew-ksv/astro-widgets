@@ -57,10 +57,11 @@ body {
     z-index: 1; 
     width: 400px;
     height: 200px;
-    /* background-image: linear-gradient(to right, #2c324e, #23354a); */
-    /* background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
     background-image: linear-gradient( 109.6deg, rgb(52, 101, 101) 11.2%, rgb(51, 57, 100) 91.1% );
-    box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
+
+    box-shadow: 6px 6px 10px 0px rgb(0, 0, 0),
+    inset 0px 0px 26px 2px rgba(0,0,0,0.49);
+
     margin-top: 2%;
     margin-left: 2%;
 
@@ -68,7 +69,7 @@ body {
     font-family: sans-serif;
 }
 /* Фази місяця🌕 ------------------------------------------------------------------------*/
-.widget #moon-container {
+.widget .moon-container {
     padding-top: 1%;
     padding-left: 5%;
 }
@@ -76,10 +77,11 @@ body {
     margin: 20px 0;
 } */
 .moon-title {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     font-size: 1.7ch;
+    font-weight: bold;
 }
-#moon-details {
+.moon-details {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -95,20 +97,15 @@ body {
 .icon {
     font-size: 2rem; /* Розмір емодзі */
 }
-/* Анімація зірок ✨ ------------------------------------------------------------------------*/
+/* Анімація зірок ✨ */
 /* @keyframes float {
     0% {
         transform: translate(0, 0);
-         Початковий стан
     }
     50% {
-        transform: translate(-20px, 15px);
-        50% анімації:
-           - Елемент зсувається на -20px по осі X (вліво)
-           - Елемент зсувається на +15px по осі Y (вниз)
+        transform: translate(-20px, 15px); 
     }
     100% {
         transform: translate(0, 0);
-         Елемент повертається у початкову позицію
     }
 } */
