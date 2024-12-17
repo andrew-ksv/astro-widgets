@@ -97,6 +97,26 @@ body {
 .icon {
     font-size: 2rem; /* Розмір емодзі */
 }
+#city-input {
+    border: 2px solid rgb(35, 54, 54);
+    border-radius: 5px;
+    background-color: rgb(21, 52, 52);
+    color: #d4d4d4;
+    outline: none;
+}
+#city-btn {
+    color: #fff; /* Білий текст */
+    background-color: rgb(21, 52, 52);
+    border: 2px solid rgb(35, 54, 54);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#city-btn:hover {
+    background-color: #126f9d;
+}
+#city-btn:active {
+    transform: scale(0.8);
+}
 /* Анімація зірок ✨ */
 /* @keyframes float {
     0% {
