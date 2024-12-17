@@ -15,39 +15,37 @@ for (let i = 0; i < numStars; i++) {
 
 // Фази місяця
 const moonPhases = {
-    "New Moon": "🌑",
-    "Waxing Crescent": "🌒",
-    "First Quarter": "🌓",
-    "Waxing Gibbous": "🌔",
-    "Full Moon": "🌕",
-    "Waning Gibbous": "🌖",
-    "Last Quarter": "🌗",
-    "Waning Crescent": "🌘",
-  };
-  
-  async function fetchMoonData() {
-    try {
-      const response = await fetch('/api/moon');
-      const data = await response.json();
-  
-      const { moon_phase } = data.astronomy.astro;
-  
-      const phaseElement = document.getElementById('moon-phase');
-      const iconElement = document.getElementById('moon-icon');
-      const moonRise = document.getElementById('moonrise');
-      const moonSet = document.getElementById('moonset');
-      const city = document.getElementById('city');
-  
-      phaseElement.textContent = `Phase: ${moon_phase}`;
-      iconElement.textContent = moonPhases[moon_phase] || "❓";
-      iconElement.style.display = 'block';
-      moonRise.textContent = `Moon rise: ${data.astronomy.astro.moonrise}`;
-      moonSet.textContent = `Moon set: ${data.astronomy.astro.moonset}`;
-      city.textContent = `Current location: ${data.location.name}`
+  "New Moon": "🌑",
+  "Waxing Crescent": "🌒",
+  "First Quarter": "🌓",
+  "Waxing Gibbous": "🌔",
+  "Full Moon": "🌕",
+  "Waning Gibbous": "🌖",
+  "Last Quarter": "🌗",
+  "Waning Crescent": "🌘",
+};
 
-    } catch (error) {
-      document.getElementById('moon-phase').textContent = 'Data loading error.';
-      console.error('Error:', error);
-    }
+async function fetchMoonData(city = '') {
+  try {
+    const response = await fetch(`/api/moon?city=${city}`);
+    const data = await response.json();
+
+    document.getElementById('moon-phase').textContent = `Phase: ${data.astronomy.moon_phase}`;
+    document.getElementById('moon-icon').textContent = moonPhases[data.astronomy.moon_phase] || "❓";
+    document.getElementById('moon-icon').style.display = 'block';
+    document.getElementById('moonrise').textContent = `Moon rise: ${data.astronomy.moonrise}`;
+    document.getElementById('moonset').textContent = `Moon set: ${data.astronomy.moonset}`;
+    document.getElementById('city').textContent = `Current location: ${data.location}`;
+  } catch (error) {
+    document.getElementById('moon-phase').textContent = 'Data loading error.';
+    console.error('Error:', error);
   }
-  fetchMoonData();
+}
+
+// Обробник натискання кнопки
+document.getElementById('city-btn').addEventListener('click', () => {
+  const cityInput = document.getElementById('city-input').value.trim();
+  fetchMoonData(cityInput || '');
+});
+
+fetchMoonData();
