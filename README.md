@@ -10,7 +10,7 @@ The following is a list of planned services and features for the **Astro Widgets
 - [ ] **Weather forecast**
 - [ ] **Real-time Astronomy Data**
 - [ ] **Online broadcast from the ISS with a view of the Earth**
-- [ ] **Meteor tracker**  
+- [ ] **Asteroids tracker**  
 - [ ] **Astronomy news feed**  
 - [ ] **Astrophotography gallery**  
 
