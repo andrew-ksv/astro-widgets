@@ -75,6 +75,7 @@ body {
 .widget .widget-container {
     padding-top: 1%;
     padding-left: 5%;
+    padding-bottom: 1%;
 }
 /* #moon-phase {
     margin: 20px 0;
