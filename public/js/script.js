@@ -62,12 +62,12 @@ async function fetchMagneticStormData() {
       const kp = data.kp;
       let kpColor;
 
-      if (kp >= 4) {
-          kpColor = 'red';
-      } else if (kp >= 2) {
-          kpColor = 'yellow';
+      if (kp >= 7) {
+          kpColor = 'rgb(254, 65, 65)';
+      } else if (kp >= 5) {
+          kpColor = 'rgb(254, 251, 65)';
       } else {
-          kpColor = 'green';
+          kpColor = 'rgb(109, 254, 65)';
       }
 
       const kpElement = document.getElementById('storm-kp');
