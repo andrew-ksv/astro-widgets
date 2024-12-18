@@ -18,8 +18,8 @@
     </div>
 
         <div class="widget">
-            <div class="moon-container">
-              <p class="moon-title">Moon Info</p>
+            <div class="widget-container">
+              <p class="widget-title">Moon Info</p>
               <input type="text" id="city-input" placeholder="Enter city name" />
               <button id="city-btn">Ok</button>
                 <p id="city"></p>
@@ -36,8 +36,11 @@
         </div>
 
             <div class="widget">
-                hello world
-                <br>hello world
+                <div class="widget-container">
+                    <p class="widget-title">Current Magnetic Storm Info</p>
+                        <p id="storm-time"></p>
+                        <p id="storm-kp"></p>
+                </div>
             </div>
 
             <div class="iss-stream">
@@ -47,7 +50,8 @@
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
             </div>
 
 <script src="/js/script.js"></script>

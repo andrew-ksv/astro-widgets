@@ -49,3 +49,35 @@ document.getElementById('city-btn').addEventListener('click', () => {
 });
 
 fetchMoonData();
+
+// Магнітна буря ☀
+async function fetchMagneticStormData() {
+  try {
+      const response = await fetch('/api/k-index');
+      const data = await response.json();
+
+      const stormTime = new Date(data.time);
+      document.getElementById('storm-time').textContent = `Date: ${stormTime.toLocaleString()}`;
+
+      const kp = data.kp;
+      let kpColor;
+
+      if (kp >= 4) {
+          kpColor = 'red';
+      } else if (kp >= 2) {
+          kpColor = 'yellow';
+      } else {
+          kpColor = 'green';
+      }
+
+      const kpElement = document.getElementById('storm-kp');
+      kpElement.textContent = `Kp Index: ${kp}`;
+      kpElement.style.color = kpColor;
+
+  } catch (error) {
+      console.error('Error fetching magnetic storm data:', error);
+      document.getElementById('storm-time').textContent = 'Error loading storm data.';
+  }
+}
+
+fetchMagneticStormData();
