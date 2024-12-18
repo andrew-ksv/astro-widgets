@@ -57,7 +57,7 @@ async function fetchMagneticStormData() {
       const data = await response.json();
 
       const stormTime = new Date(data.time);
-      document.getElementById('storm-time').textContent = `Date: ${stormTime.toLocaleString()}`;
+      document.getElementById('storm-time').textContent = `Last updated: ${stormTime.toLocaleString()}`;
 
       const kp = data.kp;
       let kpColor;
