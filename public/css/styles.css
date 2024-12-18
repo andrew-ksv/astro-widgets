@@ -122,7 +122,7 @@ body {
 #city-btn:active {
     transform: scale(0.8);
 }
-/* Анімація зірок ✨ */
+/* Анімація зірок ✨--------------------------------------------------------- */
 /* @keyframes float {
     0% {
         transform: translate(0, 0);
@@ -135,11 +135,21 @@ body {
     }
 } */
 
+.iss-stream {
+    position: relative;
+    z-index: 1; 
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
 /* Адаптивність 📱---------------------------------------------------------- */
 @media (max-width: 768px) {
     .widget {
         width: 90%;
         height: auto;
     }
-
+    .iss-stream iframe {
+        width: 90%;
+        height: auto;
+    }
 }
