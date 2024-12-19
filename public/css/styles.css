@@ -136,7 +136,7 @@ body {
     }
 } */
 
-.iss-stream .iss-tracker {
+.iss-stream {
     position: relative;
     z-index: 1; 
     margin-top: 2%;

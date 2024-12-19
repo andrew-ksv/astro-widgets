@@ -69,12 +69,25 @@
             </iframe>
             </div>
 
-            <div class="iss-tracker">
-            <iframe width="560" height="315"
-            src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=3&mapType=satellite&units=metric&preloader=1&showSatToolti&disableInfoBox=1&lang=en&z=3&mapType=satellite&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1"
-            style="border:0px">
-            </iframe>
-            </div>
+            <div id="isstracker">
+                <script>
+                var showtrackersettings = {
+                lang:'en',langboth:'0',station:'ISS',units:'kmh',uc:'1',maxwidth:'700',stationchange:'0',intval:'5',ci:'1',gsa:'1',map:'1',mc:'1',fc:'1',url:'vercel.app'
+                };
+                </script>
+                <script src="https://iss-tracker.com/showtracker.js?v=9"></script>
+                <script>
+                window.addEventListener('message', function(e) {
+                var maxwidth = '700'; var maxheight = '540'; var message = e.data;
+                if (message.width == maxwidth) document.getElementById("trackeriss").style.height = maxheight + 'px';
+                else if (message.load == "0") document.getElementById("trackeriss").style.height = message.height + 'px';
+                else if (message.load == "1" && message.width < maxwidth) {
+                var newheight = parseInt(message.width * 0.76);
+                document.getElementById("trackeriss").style.height = newheight + 'px';
+                }
+                } , false);
+                </script>
+                </div>
 
             <div style='display:inline-block; border: 1px solid #CCC;
             border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; position: relative;
