@@ -29,5 +29,4 @@ async function fetchMagneticStormData() {
         document.getElementById('storm-time').textContent = 'Error loading storm data.';
     }
   }
-  
   fetchMagneticStormData();
