@@ -22,14 +22,29 @@
               <p class="widget-title">Moon Info</p>
               <input type="text" id="city-input" placeholder="Enter city name" />
               <button id="city-btn">Ok</button>
-                <p id="city"></p>
+                <p data-city="true">Loading...</p>
                 <p id="moon-phase">Loading...</p>
 
-                <div class="moon-details">
+                <div class="astro-details">
                     <div id="moon-icon" class="icon" style="display: none;"></div>
-                        <div class="moon-times">
+                        <div class="astro-times">
                             <p id="moonrise">Loading...</p>
                             <p id="moonset">Loading...</p>
+                        </div>
+                </div>
+                <p id="moon-illumination">Loading...</p>
+            </div>
+        </div>
+
+        <div class="widget">
+            <div class="widget-container">
+              <p class="widget-title">Sun Info</p>
+                <p data-city="true">Loading...</p>
+                <div class="astro-details">
+                    <p class="icon">🌞</p>
+                        <div class="astro-times">
+                            <p id="sunrise">Loading...</p>
+                            <p id="sunset">Loading...</p>
                         </div>
                 </div>
             </div>

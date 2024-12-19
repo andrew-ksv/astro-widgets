@@ -13,7 +13,7 @@ for (let i = 0; i < numStars; i++) {
     starsContainer.appendChild(star); //Додаємо зірки в контейнер .stars
 }
 
-// Фази місяця
+// weatherapi фази місяця та сонце
 const moonPhases = {
   "New Moon": "🌑",
   "Waxing Crescent": "🌒",
@@ -35,19 +35,24 @@ async function fetchMoonData(city = '') {
     document.getElementById('moon-icon').style.display = 'block';
     document.getElementById('moonrise').textContent = `Moon rise: ${data.astronomy.moonrise}`;
     document.getElementById('moonset').textContent = `Moon set: ${data.astronomy.moonset}`;
-    document.getElementById('city').textContent = `Current location: ${data.location}`;
+    document.getElementById('sunrise').textContent = `Sun rise: ${data.astronomy.sunrise}`;
+    document.getElementById('sunset').textContent = `Sun set: ${data.astronomy.sunset}`;
+
+    document.querySelectorAll('[data-city="true"]').forEach(element => {
+      element.textContent = `Current location: ${data.location}`;
+    });
+    
+    document.getElementById('moon-illumination').textContent = `Moon illumination: ${data.astronomy.moon_illumination}%`;
   } catch (error) {
     document.getElementById('moon-phase').textContent = 'Data loading error.';
     console.error('Error:', error);
   }
 }
-
 // Обробник натискання кнопки
 document.getElementById('city-btn').addEventListener('click', () => {
   const cityInput = document.getElementById('city-input').value.trim();
   fetchMoonData(cityInput || '');
 });
-
 fetchMoonData();
 
 // Магнітна буря ☀

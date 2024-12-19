@@ -85,16 +85,16 @@ body {
     font-size: 1.7ch;
     font-weight: bold;
 }
-.moon-details {
+.astro-details {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.moon-times {
+.astro-times {
     display: flex;
     flex-direction: column;
 }
-.moon-times p {
+.astro-times p {
     margin: 5px;
     padding: 0;
 }
