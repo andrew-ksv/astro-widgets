@@ -1,0 +1,38 @@
+.heading {
+    color: rgb(197, 197, 197);
+    text-align: center;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px;
+}
+.gallery {
+    position: relative;
+    z-index: 1; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+/* Стиль для кожного елементу */
+.content-data {
+    background-color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(202, 201, 201);
+    border-radius: 10px;
+    overflow: hidden;
+    /* width: 100%; */
+    text-align: center;
+}
+/* Стиль для зображень */
+.content-data img {
+    width: 100%;
+    height: auto;
+}
+.content-data h2 {
+    font-size: 1.2rem;
+}
+.content-data p {
+    font-size: 1rem;
+    padding: 0 10px;
+}

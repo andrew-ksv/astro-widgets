@@ -153,4 +153,8 @@ body {
         width: 90%;
         height: auto;
     }
+    .planet {
+        width: 20%;
+        height: auto;
+    }
 }

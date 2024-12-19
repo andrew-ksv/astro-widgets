@@ -14,7 +14,7 @@ The following is a list of planned services and features for the **Astro Widgets
 - [x] **The Spot The Station widget**
 - [ ] **Asteroids tracker**  
 - [ ] **Astronomy news feed**  
-- [ ] **Astrophotography gallery**  
+- [x] **Astrophotography gallery**  
 
 ---
 
