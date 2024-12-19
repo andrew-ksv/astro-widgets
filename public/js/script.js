@@ -41,7 +41,7 @@ async function fetchMoonData(city = '') {
     document.querySelectorAll('[data-city="true"]').forEach(element => {
       element.textContent = `Current location: ${data.location}`;
     });
-    
+
     document.getElementById('moon-illumination').textContent = `Moon illumination: ${data.astronomy.moon_illumination}%`;
   } catch (error) {
     document.getElementById('moon-phase').textContent = 'Data loading error.';
@@ -76,7 +76,7 @@ async function fetchMagneticStormData() {
       }
 
       const kpElement = document.getElementById('storm-kp');
-      kpElement.textContent = `Kp Index: ${kp}`;
+      kpElement.textContent = `Planetary K index: ${kp}`;
       kpElement.style.color = kpColor;
 
   } catch (error) {
