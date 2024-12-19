@@ -55,7 +55,7 @@ document.getElementById('city-btn').addEventListener('click', () => {
 });
 fetchMoonData();
 
-// Магнітна буря ☀
+// Магнітна буря 🌞
 async function fetchMagneticStormData() {
   try {
       const response = await fetch('/api/k-index');
