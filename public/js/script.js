@@ -15,3 +15,6 @@ for (let i = 0; i < numStars; i++) {
      //star.style.animationDelay = `${Math.random() * 5}s`; //Випадкова затримка перед початком анімації
     starsContainer.appendChild(star);
 }
+
+// Поточний рік
+document.getElementById('currentYear').textContent = new Date().getFullYear();
