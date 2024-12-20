@@ -79,15 +79,31 @@ body {
     font-size: 2.1ch;
     font-family: sans-serif;
 }
-/* Фази місяця🌕 ------------------------------------------------------------------------*/
 .widget .widget-container {
     padding-top: 1%;
     padding-left: 5%;
     padding-bottom: 1%;
 }
-/* #moon-phase {
-    margin: 20px 0;
-} */
+.widgetset1, .widgetset2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.widgetset2 {
+    margin: 2%;
+}
+.iss-stream {
+    position: relative;
+    z-index: 1; 
+    margin-right: 2%;
+}
+#isstracker {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+    z-index: 1;
+}
 .widget-title {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     font-size: 1.7ch;
@@ -143,13 +159,6 @@ body {
         transform: translate(0, 0);
     }
 } */
-
-.iss-stream {
-    position: relative;
-    z-index: 1; 
-    margin-top: 2%;
-    margin-left: 2%;
-}
 
 /* Адаптивність 📱---------------------------------------------------------- */
 @media (max-width: 768px) {
