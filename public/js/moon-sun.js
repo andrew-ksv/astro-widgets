@@ -28,19 +28,19 @@ const moonPhases = {
         element.textContent = `Current location: ${data.location}`});
       document.getElementById('moon-illumination').textContent = `Moon illumination: ${data.astronomy.moon_illumination}%`;
         
-        const sunStatus = data.astronomy.is_sun_up;
-        if (sunStatus === 1) {
-          document.getElementById('sun-status').textContent= `The Sun has risen`;
-        } else if (sunStatus === 0) {
-          document.getElementById('sun-status').textContent= `The Sun has set`;
-        }
+        // const sunStatus = data.astronomy.is_sun_up;
+        // if (sunStatus === 1) {
+        //   document.getElementById('sun-status').textContent= `The Sun has risen`;
+        // } else if (sunStatus === 0) {
+        //   document.getElementById('sun-status').textContent= `The Sun has set`;
+        // }
 
-        const moonStatus = data.astronomy.is_moon_up;
-        if (moonStatus === 1) {
-          document.getElementById('moon-status').textContent= `The Moon has risen`;
-        } else if (moonStatus === 0) {
-          document.getElementById('moon-status').textContent= `The Moon has set`;
-        }
+        // const moonStatus = data.astronomy.is_moon_up;
+        // if (moonStatus === 1) {
+        //   document.getElementById('moon-status').textContent= `The Moon has risen`;
+        // } else if (moonStatus === 0) {
+        //   document.getElementById('moon-status').textContent= `The Moon has set`;
+        // }
 
     } catch (error) {
       document.getElementById('moon-phase').textContent = 'Data loading error.';
