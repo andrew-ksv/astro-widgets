@@ -1,36 +1,32 @@
 .about-section {
     position: relative;
     z-index: 1;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background: rgba(0, 0, 0, 1);
+    background: #111111;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-  }
-  
-  .about-section h1 {
+    box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
+} 
+.about-section h1 {
     text-align: center;
     font-size: 2.5rem;
-    color: #ffcc00; /* акцентний колір */
+    color: #337ecf;
     margin-bottom: 1.5rem;
-  }
-  
-  .about-section p, ul {
+}
+.about-section p, ul {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #dcdcdc; /* м'який контрастний колір для тексту */
-  }
-  
-  .about-section p:last-child {
-    margin-bottom: 0; /* Забираємо відступ у останнього абзацу */
-  }
-
-  .about-section {
+    color: rgb(197, 197, 197);
+}
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+.about-section {
     animation: fadeIn 1.5s ease-in-out;
-  }
-  
+}
+
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -41,4 +37,3 @@
       transform: translateY(0);
     }
   }
-  
