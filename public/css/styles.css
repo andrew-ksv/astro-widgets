@@ -20,6 +20,9 @@ body {
     margin-top: 1%;
 }
 .menu {
+    display: flex;
+    align-items: center; /* Вирівнює по вертикалі */
+    justify-content: center;
     border: 1px solid rgb(89, 89, 89); /* Рамка */
     border-radius: 30px; /* Скруглені краї */
     padding: 0.5%;
@@ -153,6 +156,20 @@ footer {
     align-items: center;
     position: relative;
   }
+
+#nav-dropdown {
+    padding: 4px;
+    font-size: 1rem;
+    border-radius: 20px;
+    background: #131d28;
+    color: rgb(167, 167, 167);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+  #nav-dropdown:focus {
+    border-color: #007bff;
+}
 
 /* Анімація зірок ✨--------------------------------------------------------- */
 /* @keyframes float {
