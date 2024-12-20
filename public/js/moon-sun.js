@@ -24,12 +24,24 @@ const moonPhases = {
       document.getElementById('moonset').textContent = `Moon set: ${data.astronomy.moonset}`;
       document.getElementById('sunrise').textContent = `Sun rise: ${data.astronomy.sunrise}`;
       document.getElementById('sunset').textContent = `Sun set: ${data.astronomy.sunset}`;
-  
       document.querySelectorAll('[data-city="true"]').forEach(element => {
-        element.textContent = `Current location: ${data.location}`;
-      });
-  
+        element.textContent = `Current location: ${data.location}`});
       document.getElementById('moon-illumination').textContent = `Moon illumination: ${data.astronomy.moon_illumination}%`;
+        
+        const sunStatus = data.astronomy.is_sun_up;
+        if (sunStatus === 1) {
+          document.getElementById('sun-status').textContent= `The Sun has risen`;
+        } else if (sunStatus === 0) {
+          document.getElementById('sun-status').textContent= `The Sun has set`;
+        }
+
+        const moonStatus = data.astronomy.is_moon_up;
+        if (moonStatus === 1) {
+          document.getElementById('moon-status').textContent= `The Moon has risen`;
+        } else if (moonStatus === 0) {
+          document.getElementById('moon-status').textContent= `The Moon has set`;
+        }
+
     } catch (error) {
       document.getElementById('moon-phase').textContent = 'Data loading error.';
       console.error('Error:', error);
