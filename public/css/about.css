@@ -1,0 +1,44 @@
+.about-section {
+    position: relative;
+    z-index: 1;
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 1);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  }
+  
+  .about-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ffcc00; /* акцентний колір */
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-section p, ul {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #dcdcdc; /* м'який контрастний колір для тексту */
+  }
+  
+  .about-section p:last-child {
+    margin-bottom: 0; /* Забираємо відступ у останнього абзацу */
+  }
+
+  .about-section {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
