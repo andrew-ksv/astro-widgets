@@ -24,3 +24,5 @@ The following is a list of planned services and features for the **Astro Widgets
 
 ### Contact
 If you have any questions, suggestions, or feedback, feel free to open an issue.
+
+Special thanks to NASA, NOAA, iss-tracker.com.
