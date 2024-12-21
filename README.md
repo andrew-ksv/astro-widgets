@@ -15,7 +15,7 @@ The following is a list of planned services and features for the **Astro Widgets
 - [ ] **Asteroids tracker**  
 - [ ] **Astronomy news feed**  
 - [x] **Astrophotography gallery**  
-- [ ] **Information about the northern lights (aurora borealis)**
+- [x] **Information about the northern lights (aurora borealis)**
 
 ---
 
