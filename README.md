@@ -20,7 +20,7 @@ The following is a list of planned services and features for the **Astro Widgets
 ---
 
 ### Additional Features:
-- [ ] Add **mobile responsiveness** for a better experience on all devices.
+- [x] Add **mobile responsiveness** for a better experience on all devices.
 
 ### Contact
 If you have any questions, suggestions, or feedback, feel free to open an issue.
