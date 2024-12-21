@@ -203,8 +203,12 @@ footer {
     }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     .menu {
         width: 45%;
+    }
+    .widget {
+        width: 30%;
+        height: auto;
     }
 }
