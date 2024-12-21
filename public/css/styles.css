@@ -202,3 +202,9 @@ footer {
         width: 93%;
     }
 }
+
+@media (max-width: 1024px) {
+    .menu {
+        width: 45%;
+    }
+}
