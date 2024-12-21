@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the project</title>
+    <title>Aurora</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/aurora.css">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 <body>
@@ -27,27 +27,34 @@
         </div>
     </div>
 
-    <section class="about-section">
-        <h1>About Astro Widgets</h1>
-        <p>Astro Widgets is a web project providing a collection of interactive widgets for displaying astronomical data.</p>
-        <p>Functions that are currently being developed:</p>
-            <ul style="list-style-type: none;">
-                <li>🔷 Magnetic storm forecast</li>
-                <li>🔷 Weather forecast</li>
-                <li>🔷 Asteroids tracker</li>
-                <li>🔷 Astronomy news feed</li>
-                <li>🔷 Information about the northern lights (aurora borealis)</li>
-            </ul>
-        <p>If you have any questions, suggestions, or would like to share your feedback, please use this
-        <a href="https://forms.office.com/r/D0GVww9kb7">form.</a></p>
-        <p>Special thanks to NASA, NOAA.</p>
-      </section>
-      
+    <p class="heading">Information about the aurora borealis</p>
+    <p class="heading">for the Northern and Southern Hemispheres.</p>
+<div class="card-container">
+    <div class="card">
+        <img src="https://services.swpc.noaa.gov/images/animations/ovation/north/latest.jpg" 
+        alt="Geomagnetic storm North" 
+        class="card-img" 
+        id="image1">
+    </div>
 
+        <div class="card">
+            <img src="https://services.swpc.noaa.gov/images/animations/ovation/south/latest.jpg" 
+            alt="Geomagnetic storm South" 
+            class="card-img" 
+            id="image2">
+        </div>
+</div>
+
+    <div id="modal" class="modal">
+        <span class="close" id="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
 
     <footer>
         <p>Copyright © Astro Widgets <span id="currentYear"></span></p>
     </footer>
-    <script src="/js/script.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/aurora.js"></script>
 </body>
 </html>
