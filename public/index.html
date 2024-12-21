@@ -95,7 +95,7 @@
             </div>
 </div>
 
-    <div id="isstracker">
+    <!-- <div id="isstracker">
         <script>
         var showtrackersettings = {
         lang:'en',langboth:'0',station:'ISS',units:'kmh',uc:'1',maxwidth:'700',stationchange:'0',intval:'5',ci:'1',gsa:'1',map:'1',mc:'1',fc:'1',url:'vercel.app'
@@ -113,7 +113,17 @@
         }
         } , false);
         </script>
-    </div> 
+    </div>  -->
+    
+    <div id="isstracker">
+    <script>
+        var norad_n2yo = '25544|ISS,43600|Aeolus,20580|HST';
+        var size_n2yo = 'medium';
+        var allpasses_n2yo = '0';
+        var map_n2yo = '2';
+        </script>
+        <script type="text/javascript" src="https://www.n2yo.com/js/widget-tracker.js"></script>
+    </div>
 
     <footer>
         <p>Copyright © Astro Widgets <span id="currentYear"></span></p>
