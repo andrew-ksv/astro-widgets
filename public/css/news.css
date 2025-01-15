@@ -2,13 +2,18 @@
     position: relative;
     z-index: 1;
     max-width: 800px;
-    margin: 20px auto;
+    margin: 0 auto;
+    margin-top: 2%;
     padding: 20px;
-    background: #2d3f53;
+    background: #3b516a;
     border-radius: 8px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 6px 6px 10px 0px rgb(0, 0, 0),
+    inset 0px 0px 26px 2px rgba(0,0,0,0.49);
 }
-
+.container-for-news h1 {
+    text-align: center;
+    font-size: 26px;
+}
 .article {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
