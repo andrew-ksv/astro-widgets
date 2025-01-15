@@ -15,7 +15,6 @@ async function fetchApod() {
                     <p>${item.date}</p>
                     <img src="${item.url}" alt="${item.title}" style="max-width: 100%;"/>
                     <p>${item.explanation}</p>
-                    <hr />
                 </div>
             `;
         });
