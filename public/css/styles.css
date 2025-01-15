@@ -81,13 +81,10 @@ body {
     padding-left: 5%;
     padding-bottom: 1%;
 }
-.widgetset1, .widgetset2 {
+.widgetset {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-.widgetset2 {
-    margin: 2%;
 }
 .iss-stream {
     position: relative;
