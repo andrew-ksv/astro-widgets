@@ -24,6 +24,7 @@
             <nav>
                 <select id="nav-dropdown" onchange="location = this.value;">
                   <option value="" disabled selected>Select a page</option>
+                  <option value="isstracker.html">ISS Tracker</option>
                   <option value="aurora.html">Aurora</option>
                   <option value="about.html">About</option>
                   <option value="https://forms.office.com/r/D0GVww9kb7">Feedback</option>
@@ -33,7 +34,7 @@
         </div>
     </div>
 
-<div class="widgetset1">
+<div class="widgetset">
         <div class="widget">
             <div class="widget-container">
               <p class="widget-title">Moon Info</p>
@@ -77,59 +78,6 @@
                 </div>
             </div>
 </div>
-
-<div class="widgetset2">
-    <div class="iss-stream">
-        <iframe
-        width="800"
-        height="450"
-        src="https://www.youtube.com/embed/wG4YaEcNlb0?si=F8p6gztmqds2COEG"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
-        </div>    
-
-            <div class="iss-spot" style='display:inline-block; border: 1px solid #CCC;
-            border-radius: 6px; -webkit-border-radius: 6px; -o-border-radius: 6px; position: relative;
-            overflow: hidden; width: 310px; height: 450px;'>
-                <iframe src='https://spotthestation.nasa.gov/widget/widget2.cfm?theme=2'
-                width='310'
-                height='450'
-                frameborder='0' >
-                </iframe>
-            </div>
-</div>
-
-    <!-- <div id="isstracker">
-        <script>
-        var showtrackersettings = {
-        lang:'en',langboth:'0',station:'ISS',units:'kmh',uc:'1',maxwidth:'700',stationchange:'0',intval:'5',ci:'1',gsa:'1',map:'1',mc:'1',fc:'1',url:'vercel.app'
-        };
-        </script>
-        <script src="https://iss-tracker.com/showtracker.js?v=9"></script>
-        <script>
-        window.addEventListener('message', function(e) {
-        var maxwidth = '700'; var maxheight = '540'; var message = e.data;
-        if (message.width == maxwidth) document.getElementById("trackeriss").style.height = maxheight + 'px';
-        else if (message.load == "0") document.getElementById("trackeriss").style.height = message.height + 'px';
-        else if (message.load == "1" && message.width < maxwidth) {
-        var newheight = parseInt(message.width * 0.76);
-        document.getElementById("trackeriss").style.height = newheight + 'px';
-        }
-        } , false);
-        </script>
-    </div>  -->
-
-    <div id="isstracker">
-        <iframe 
-        width="600" 
-        height="400" 
-        src="https://isstracker.pl/en/widget/map?&disableInfoBox=1&lang=en&z=4&mapType=carto&units=metric&preloader=0&showSatToolti&disableInfoBox=1&lang=en&z=4&mapType=carto&units=metric&preloader=1&showSatTooltip=1&dayNightLayer=1&showFutureOrbit=1&dayNightLayer=1&showFutureOrbit=1" 
-        style="border: 0px; border-radius: 0px;">
-        </iframe>
-    </div>
 
     <div class="container-for-news" id="newsContainer">
         <h1>Latest News</h1>
