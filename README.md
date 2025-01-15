@@ -13,7 +13,7 @@ The following is a list of planned services and features for the **Astro Widgets
 - [x] **Online broadcast from the ISS with a view of the Earth**
 - [x] **The Spot The Station widget**
 - [ ] **Asteroids tracker**  
-- [ ] **Astronomy news feed**  
+- [x] **Astronomy news feed**  
 - [x] **Astrophotography gallery**  
 - [x] **Information about the northern lights (aurora borealis)**
 
