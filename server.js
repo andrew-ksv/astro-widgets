@@ -10,6 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/moon', require('./api/moon'));
 app.use('/api/k-index', require('./api/k-index'));
 app.use('/api/astro-pics', require('./api/astro-pics'));
+app.use('/api/news', require('./api/news'));
 
 //Starting the server
 app.listen(PORT, () => {
