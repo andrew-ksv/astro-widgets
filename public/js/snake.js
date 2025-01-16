@@ -12,15 +12,21 @@ let interval; //змінна інтервалу, який контролює р�
 let totalTime = 0; //змінна для таймера
 let timerInterval; //змінна інтервалу для таймера, який оновлюється у функції updateTimer
 
-const foodEmojis = ['🍎', '🍌', '🍉', '🍇', '🍓', '🍊', '🍒', '🍰', '💩', '🍑', '🍞', '🧠', '🐣'];
-const snakeEmojis = ['🟩', '🟦', '🟨', '🟥', '🟧', '🟫', '🟢', '🌑'];
-const starEmoji = '⭐';
+const foodEmojis = ['🥝', '🍪', '🍉', '🥑'];
+const snakeEmojis = ['⬛', '🟪', '🟦'];
+const bonusEmoji = '⭐';
+const debuffEmoji = '🕳️';
 
 let cells; //масив клітинок гри
 let snake; //масив індексів клітинок які утворюють змію
 let direction; //напрямок руху змії
 let foodIndex; //індекс клітинки з їжею
 let snakeEmoji; //символ який позначає змію
+
+let foodItems = [];
+let debuffItems = [];
+let starItems = [];
+let bonusItems = [];
 
 function createGrid() { //ф-ція створення сітки gridSize X gridSize, додавання її до HTML-елемента game
     game.innerHTML = ''; //очищення попереднього вмісту контейнера game
@@ -71,6 +77,7 @@ function startGame() {
 
     randomFood();
     interval = setInterval(moveSnake, intervalTime);
+    spawnItems(); // ф-ція створення бонусів та дебафів
 }
 
 function getValidStartPosition() { //ф-ція яка визначає початкову позицію змійки
@@ -89,20 +96,64 @@ function randomFood() {
         foodIndex = Math.floor(Math.random() * cells.length);
     } while (cells[foodIndex].classList.contains('border') || cells[foodIndex].classList.contains('snake'));
    
-    let randomFoodEmoji = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
-   
-    if (Math.random() < 0.2) { //вірогідність випадання зірки 20% (0.2)
-        randomFoodEmoji = starEmoji;
-    }
+    const randomFoodEmoji = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
+    cells[foodIndex].innerText = randomFoodEmoji;
+    cells[foodIndex].classList.add('food');
+    foodItems.push(foodIndex);
+}
 
-    cells[foodIndex].innerText = randomFoodEmoji; //встановлення емодзі в клітинку
-    if (randomFoodEmoji === starEmoji) { //додавання відповідного класу в клітинку
-        cells[foodIndex].classList.add('star');
-    } else if (randomFoodEmoji === '💩') {
-        cells[foodIndex].classList.add('debuff');
-    } else {
-        cells[foodIndex].classList.add('food');
-    }
+function spawnItems() {
+    setInterval(() => {
+        if (Math.random() < 0.15) { // 15% ймовірність для бонусу
+            spawnBonus();
+        }
+        if (Math.random() < 0.25) { // 20% ймовірність для дебафу
+            spawnDebuff();
+        }
+    }, 10000); // кожні 10 секунд
+}
+
+function spawnBonus() {
+    let bonusIndex;
+    do {
+        bonusIndex = Math.floor(Math.random() * cells.length);
+    } while (cells[bonusIndex].classList.contains('border') || 
+    cells[bonusIndex].classList.contains('snake') || 
+    cells[bonusIndex].classList.contains('bonus'));
+
+    cells[bonusIndex].innerText = bonusEmoji;
+    cells[bonusIndex].classList.add('bonus');
+    bonusItems.push(bonusIndex);
+
+    setTimeout(((index) => () => {
+        if (cells[index].classList.contains('bonus')) {
+            cells[index].innerText = '';
+            cells[index].classList.remove('bonus');
+            bonusItems = bonusItems.filter(i => i !== index);
+        }
+    })(bonusIndex), 8000); //бонус зникає через 8 секунд
+}
+
+function spawnDebuff() {
+    let debuffIndex;
+    do {
+        debuffIndex = Math.floor(Math.random() * cells.length);
+    } while (
+        cells[debuffIndex].classList.contains('border') || 
+        cells[debuffIndex].classList.contains('snake') || 
+        cells[debuffIndex].classList.contains('debuff'));
+
+    cells[debuffIndex].innerText = debuffEmoji;
+    cells[debuffIndex].classList.add('debuff');
+    debuffItems.push(debuffIndex);
+
+    setTimeout(((index) => () => {
+        if (cells[index].classList.contains('debuff')) {
+            cells[index].innerText = '';
+            cells[index].classList.remove('debuff');
+            debuffItems = debuffItems.filter(i => i !== index);
+        }
+    })(debuffIndex), 8000); //дебаф зникає через 8 секунд
 }
 
 function moveSnake() {
@@ -133,23 +184,25 @@ function moveSnake() {
         randomFood();
         snake.push(tail);
         clearInterval(interval);
-        intervalTime = intervalTime * 0.95; //швидкість збільшується на 5%
+        intervalTime = intervalTime * 0.97; //швидкість збільшується на 3%
         interval = setInterval(moveSnake, intervalTime);
-    } else if (cells[head].classList.contains('star')) {
+    } else if (cells[head].classList.contains('bonus')) {
         updateScore(100);
-        cells[head].classList.remove('star');
-        randomFood();
+        cells[head].classList.remove('bonus');
+        bonusItems = bonusItems.filter(i => i !== head); //видаляємо з масиву бонусів
+        // randomFood();
         snake.push(tail);
         clearInterval(interval);
-        intervalTime = intervalTime * 0.95;
+        intervalTime = intervalTime * 0.97; //швидкість збільшується на 3%
         interval = setInterval(moveSnake, intervalTime);
     } else if (cells[head].classList.contains('debuff')) {
-        updateScore(-5);
+        updateScore(-10);
         cells[head].classList.remove('debuff');
-        randomFood();
+        debuffItems = debuffItems.filter(i => i !== head); //видаляємо з масиву дебафів
+        // randomFood();
         snake.push(tail);
         clearInterval(interval);
-        intervalTime = intervalTime * 0.95;
+        intervalTime = intervalTime * 0.97; //швидкість збільшується на 3%
         interval = setInterval(moveSnake, intervalTime);
     }
 
