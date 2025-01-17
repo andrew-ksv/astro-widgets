@@ -12,7 +12,7 @@ let interval; //змінна інтервалу, який контролює р�
 let totalTime = 0; //змінна для таймера
 let timerInterval; //змінна інтервалу для таймера, який оновлюється у функції updateTimer
 
-const foodEmojis = ['🥝', '🍪', '🍉', '🥑'];
+const foodEmojis = ['🥝', '🍒', '🍉', '🥑'];
 const snakeEmojis = ['⬛', '🟪', '🟦'];
 const bonusEmoji = '⭐';
 const debuffEmoji = '🕳️';
@@ -184,7 +184,7 @@ function moveSnake() {
         randomFood();
         snake.push(tail);
         clearInterval(interval);
-        intervalTime = intervalTime * 0.97; //швидкість збільшується на 3%
+        intervalTime = intervalTime * 0.98; //швидкість збільшується на 2%
         interval = setInterval(moveSnake, intervalTime);
     } else if (cells[head].classList.contains('bonus')) {
         updateScore(100);
@@ -193,16 +193,16 @@ function moveSnake() {
         // randomFood();
         snake.push(tail);
         clearInterval(interval);
-        intervalTime = intervalTime * 0.97; //швидкість збільшується на 3%
+        intervalTime = intervalTime * 0.98; //швидкість збільшується на 2%
         interval = setInterval(moveSnake, intervalTime);
     } else if (cells[head].classList.contains('debuff')) {
-        updateScore(-10);
+        updateScore(-50);
         cells[head].classList.remove('debuff');
         debuffItems = debuffItems.filter(i => i !== head); //видаляємо з масиву дебафів
         // randomFood();
         snake.push(tail);
         clearInterval(interval);
-        intervalTime = intervalTime * 0.97; //швидкість збільшується на 3%
+        intervalTime = intervalTime * 0.98; //швидкість збільшується на 2%
         interval = setInterval(moveSnake, intervalTime);
     }
 
