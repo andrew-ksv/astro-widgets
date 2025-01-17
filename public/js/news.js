@@ -14,6 +14,7 @@ async function fetchNews() {
                 <img src="${article.image}" alt="${article.title}">
                 <h2>${article.title}</h2>
                 <p>${article.description}</p>
+                <p>Published at ${article.publishedAt}</p>
                 <a href="${article.url}" target="_blank">Read More</a>
                 `;
                     newsContainer.appendChild(articleElement);
