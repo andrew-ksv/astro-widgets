@@ -1,13 +1,30 @@
 body {
+    background: radial-gradient(at center top, #355475, #1a1c2a);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-attachment: fixed;
+
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #d0d0d0;
-    font-family: monospace;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* max-width: 1200px; */
+    width: 60%;
+    gap: 20px;
+}
+.main-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #game {
+    display: flex;
+    justify-content: center;
     font-size: 20px;
     display: grid;
     grid-template-columns: repeat(20, 20px);
@@ -19,7 +36,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   
 }
 .snake {
     color: green;
@@ -34,7 +50,7 @@ body {
     color: brown;
 }
 .border {
-    background-color: rgb(27, 25, 25);
+    background-color: rgb(22, 21, 21);
 }
 .controls {
     display: flex;
@@ -44,7 +60,7 @@ body {
 .button {
     padding: 10px 15px;
     background-color: #007BFF;
-    color: white;
+    color: rgb(235, 235, 235);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -54,44 +70,71 @@ body {
     background-color: #0056b3;
 }
 #score {
-    display: flex;
-    justify-content: center;
     font-size: 18px;
-    margin-bottom: 10px;
 }
-
-/* @media (max-width: 600px) {
-    #score {
-        position: absolute;
-        bottom: 10px;
-    }
-} */
-
+#timer {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 .heading {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 2px 0;
-    font-size: 15px;
+    font-size: 18px;
+    text-align: center;
+    font-family: monospace;
+    margin: 5px 0;
+    font-weight: bold;
 }
-
-#legend-card {
-    background: #fff;
-    padding: 15px;
+.hint {
+    font-size: 15px;
+    text-align: center;
+    font-family: monospace;
+    margin: 5px 0;
+}
+.legend-card {
+    background: #33659a;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
-    text-align: center;
     max-width: 300px;
-    margin-top: 20px;
 }
-#legend-card h1 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-#legend-card p {
+.legend-card p {
     margin: 5px 0;
     font-size: 14px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    color: #020202;
     gap: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.leaderboard-wrap {
+    background: #33659a;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
+    max-width: 200px;
+}
+.leaderboard-wrap p {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #020202;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.board-heading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* .legend-card, .main-game, .leaderboard-wrap {
+        width: 100%; 
+        max-width: 90%;
+    } */
+
 }

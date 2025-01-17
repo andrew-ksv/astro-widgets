@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐍Cosmic Snake</title>
-    <!-- <link rel="stylesheet" href="/css/styles.css"> -->
     <link rel="stylesheet" href="/css/snake.css">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <script>
@@ -14,31 +13,44 @@
       <meta name="google-adsense-account" content="ca-pub-3594842010285973">
 </head>
 <body>
-    <p class="heading">Cosmic Snake video game</p>
-    <p class="heading">Control using the keyboard or on-screen buttons</p>
-   
-    <div id="score">Score: 0</div>
-    <div id="timer">Time: 00:00</div>
-    <div id="game"></div>
+<div class="container">
+    <div class="legend-card">
+        <p class="board-heading">Snake Game Legend</p>
+        <p><span>🍉</span> Food: +10 score</p>
+        <p><span>⭐</span> Star: +100 score</p>
+        <p><span>🕳️</span> Black Hole: -10 score</p>
+    </div>
 
-    <div class="controls">
-        <a href="index.html"><button class="button">🏠Main</button></a>
-        <button class="button" id="left">⬅️</button>
-        <div>
-            <button class="button" id="up">⬆️</button>
-            <button class="button" id="down">⬇️</button>
+    <div class="main-game">
+        <p class="heading">Cosmic Snake video game</p>
+        <p class="hint">Control using the keyboard or on-screen buttons</p>
+       
+        <div id="score">Score: 0</div>
+        <div id="timer">Time: 00:00</div>
+        <div id="game"></div>
+
+        <div class="controls">
+            <a href="index.html"><button class="button">🏠Main</button></a>
+            <button class="button" id="left">⬅️</button>
+            <div>
+                <button class="button" id="up">⬆️</button>
+                <button class="button" id="down">⬇️</button>
+            </div>
+            <button class="button" id="right">➡️</button>
+            <button class="button" id="restart">🔄Restart</button>
         </div>
-        <button class="button" id="right">➡️</button>
-        <button class="button" id="restart">🔄Restart</button>
     </div>
 
-    <div id="legend-card">
-        <h1 class="heading">Snake Game Legend</h1>
-        <p><span class="cell food">🍉</span> Food: +10 score</p>
-        <p><span class="cell bonus">⭐</span> Star: +100 score</p>
-        <p><span class="cell debuff">🕳️</span> Black Hole: -10 score</p>
+    <div class="leaderboard-wrap">
+    <p class="board-heading">leaderboard</p>
+    <p>1. Nick</p>
+    <p>2. Nick</p>
+    <p>3. Nick</p>
+    <p>4. Nick</p>
+    <p>5. Nick</p>
     </div>
-<!-- <script src="/js/script.js"></script> -->
+
+</div>
 <script src="/js/snake.js"></script>
 </body>
 </html>
