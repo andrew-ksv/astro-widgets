@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: 'Missing fields' });
   }
 
-  const sql = neon(process.env.DATABASE_URL);
+  const sql = neon(process.env.local.DATABASE_URL);
   
   try {
     // Вставка в таблицю лідерів
