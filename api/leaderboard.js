@@ -3,7 +3,7 @@ const router = express.Router();
 const { neon } = require('@neondatabase/serverless'); 
 router.get('/', async (req, res) => {
   try {
-    const sql = neon(`${process.env.local.DATABASE_URL}`);
+    const sql = neon(`${process.env.DATABASE_URL}`);
     const result = await sql('SELECT * FROM snake_scores ORDER BY score DESC LIMIT 10');
     res.json(result.rows);
   } catch (error) {
