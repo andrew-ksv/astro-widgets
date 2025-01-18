@@ -104,13 +104,13 @@ function randomFood() {
 
 function spawnItems() {
     setInterval(() => {
-        if (Math.random() < 0.15) { // 15% ймовірність для бонусу
+        if (Math.random() < 0.15) { // 10% ймовірність для бонусу
             spawnBonus();
         }
-        if (Math.random() < 0.25) { // 20% ймовірність для дебафу
+        if (Math.random() < 0.25) { // 15% ймовірність для дебафу
             spawnDebuff();
         }
-    }, 10000); // кожні 10 секунд
+    }, 12000); // кожні 12 секунд
 }
 
 function spawnBonus() {
