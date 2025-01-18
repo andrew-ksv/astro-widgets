@@ -65,6 +65,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%;
 }
 .button:active {
     background-color: #0056b3;
@@ -95,7 +96,6 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
-    max-width: 300px;
 }
 .legend-card p {
     margin: 5px 0;
@@ -111,7 +111,6 @@ body {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
-    max-width: 200px;
 }
 .leaderboard-wrap p {
     margin: 5px 0;
@@ -125,6 +124,9 @@ body {
     font-size: 15px;
     font-weight: bold;
 }
+/* .ad {
+    
+} */
 
 @media (max-width: 768px) {
     .container {
@@ -136,5 +138,9 @@ body {
         width: 100%; 
         max-width: 90%;
     } */
+
+    .main-game {
+        max-width: 90%;
+    }
 
 }
