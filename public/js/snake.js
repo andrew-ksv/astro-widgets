@@ -156,6 +156,50 @@ function spawnDebuff() {
     })(debuffIndex), 8000); //дебаф зникає через 8 секунд
 }
 
+// LEADERBOARD
+// Функція для відкриття вікна введення нікнейма після завершення гри
+function showEndGameModal() {
+    const modal = document.getElementById('nickname-modal');
+    const submitButton = document.getElementById('submit-nickname');
+    const cancelButton = document.getElementById('cancel-nickname');
+    const nicknameInput = document.getElementById('nickname');
+  
+    modal.style.display = 'block';
+  
+    submitButton.addEventListener('click', () => {
+      const nickname = nicknameInput.value;
+      if (nickname) {
+        // Відправляємо дані на сервер
+        const payload = {
+          nickname: nickname,
+          score: score,  // поточні бали
+          time: timerDisplay.innerText.replace('Time: ', '')  // час гри
+        };
+  
+        fetch('/api/saveScore', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message) {
+            alert('Your score has been saved!');
+            modal.style.display = 'none';
+          } else {
+            alert('Error saving score');
+          }
+        })
+        .catch(error => alert('Error: ' + error));
+      }
+    });
+  
+    cancelButton.addEventListener('click', () => {
+      modal.style.display = 'none'; // Закрити модальне вікно
+    });
+  }
+
+
 function moveSnake() {
     const tail = snake.pop(); //видаляє останній елемент масиву snake (хвіст змії)
     cells[tail].innerText = '';
@@ -177,6 +221,8 @@ function moveSnake() {
     }
 
     snake.unshift(head);
+    cells[head].innerText = snakeEmoji; //додано
+    cells[head].classList.add('snake'); //додано
 
     if (cells[head].classList.contains('food')) {
         updateScore(10);
