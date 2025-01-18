@@ -217,6 +217,7 @@ function moveSnake() {
     ) {
         clearInterval(interval);
         clearInterval(timerInterval); //зупиняємо таймер при програші
+        showEndGameModal(); // Додаємо виклик модального вікна
         return;
     }
 
