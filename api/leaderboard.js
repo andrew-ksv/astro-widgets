@@ -4,7 +4,7 @@ const { neon } = require('@neondatabase/serverless');
 router.get('/', async (req, res) => {
   try {
     const sql = neon(`${process.env.local.DATABASE_URL}`);
-    const result = await sql('SELECT * FROM leaderboard ORDER BY score DESC LIMIT 10');
+    const result = await sql('SELECT * FROM snake_scores ORDER BY score DESC LIMIT 10');
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching leaderboard:', error);
