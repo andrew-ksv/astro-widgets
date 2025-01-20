@@ -41,12 +41,25 @@
         </div>
     </div>
 
-    <!-- <div class="leaderboard-wrap">
+    <div class="leaderboard-wrap">
     <p class="board-heading">leaderboard</p>
     <div id="leaderboard">
         
     </div>
-    </div> -->
+    </div>
+
+    <script> 
+    async function fetchLeaderboard() { const response = await fetch('/api/leaderboard'); 
+    const leaders = await response.json(); 
+    const leaderboard = document.getElementById('leaderboard'); 
+    leaderboard.innerHTML = ''; 
+     leaders.forEach((leader, index) => 
+     { const div = document.createElement('div'); 
+     div.innerText = `${index + 1}. ${leader.nickname} - ${leader.score} (${leader.play_time})`;
+      leaderboard.appendChild(div); }); } 
+      fetchLeaderboard(); 
+      </script>
+
 
     <div class="ad">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3594842010285973"
@@ -63,14 +76,45 @@
 
 </div>
 <!-- введення нікнейма -->
-<!-- <div id="nickname-modal" style="display: none;">
+<div id="nickname-modal" style="display: none;">
     <div class="modal-content">
         <p>Enter your nickname:</p>
         <input type="text" id="nickname" placeholder="Your nickname">
         <button id="submit-nickname">OK</button>
         <button id="cancel-nickname">Cancel</button>
     </div>
-</div> -->
+</div>
+
+<script>
+    document.getElementById('submit-nickname').addEventListener('click', async () => {
+        const nickname = document.getElementById('nickname').value;
+        const score = document.getElementById('score').innerText.replace('Score: ', ''); // отримання очок
+        const play_time = document.getElementById('timer').innerText.replace('Time: ', ''); // отримання часу
+
+        const response = await fetch('/api/submit-score', {
+            method: 'POST',
+            body: new URLSearchParams({
+                nickname,
+                score,
+                play_time
+            })
+        });
+
+        if (response.ok) {
+            // Обробка успішного запису
+            alert('Score submitted successfully!');
+        } else {
+            // Обробка помилки
+            alert('Error submitting score.');
+        }
+        // Приховуємо модальне вікно після запису
+        document.getElementById('nickname-modal').style.display = 'none';
+    });
+    document.getElementById('cancel-nickname').addEventListener('click', () => {
+        document.getElementById('nickname-modal').style.display = 'none';
+    });
+</script>
+
 
 <script src="/js/snake.js"></script>
 </body>
