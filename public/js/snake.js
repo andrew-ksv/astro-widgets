@@ -156,49 +156,49 @@ function spawnDebuff() {
     })(debuffIndex), 8000); //дебаф зникає через 8 секунд
 }
 
-// LEADERBOARD
-// Функція для відкриття вікна введення нікнейма після завершення гри
-function showEndGameModal() {
-    const modal = document.getElementById('nickname-modal');
-    const submitButton = document.getElementById('submit-nickname');
-    const cancelButton = document.getElementById('cancel-nickname');
-    const nicknameInput = document.getElementById('nickname');
-  
-    modal.style.display = 'block';
-  
-    submitButton.addEventListener('click', () => {
-      const nickname = nicknameInput.value;
-      if (nickname) {
-        // Відправляємо дані на сервер
-        const payload = {
-          nickname: nickname,
-          score: score,  // поточні бали
-          time: timerDisplay.innerText.replace('Time: ', '')  // час гри
-        };
-  
-        fetch('/api/saveScore', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.message) {
-            alert('Your score has been saved!');
-            modal.style.display = 'none';
-          } else {
-            alert('Error saving score');
-          }
-        })
-        .catch(error => alert('Error: ' + error));
-      }
-    });
-  
-    cancelButton.addEventListener('click', () => {
-      modal.style.display = 'none'; // Закрити модальне вікно
-    });
+function endGame() {
+    clearInterval(interval);
+    clearInterval(timerInterval);
+    document.getElementById('nickname-modal').style.display = 'block';
   }
+  
+  document.getElementById('submit-nickname').addEventListener('click', async () => {
+    const nickname = document.getElementById('nickname').value;
+    const score = parseInt(document.getElementById('score').textContent.split(': ')[1]);
+    const playTime = document.getElementById('timer').textContent.split(': ')[1];
+  
+    const response = await fetch('/api/submitScore', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nickname, score, play_time: playTime }),
+    });
+  
+    if (response.ok) {
+      alert('Score submitted!');
+      document.getElementById('nickname-modal').style.display = 'none';
+      updateLeaderboard();
+    } else {
+      alert('Failed to submit score');
+    }
+  });
 
+  // Обробник події для кнопки Cancel
+  document.getElementById('cancel-nickname').addEventListener('click', () => {
+    document.getElementById('nickname-modal').style.display = 'none'; // Приховуємо модальне вікно
+});
+  
+  async function updateLeaderboard() {
+    const response = await fetch('/api/leaderboard');
+    const leaders = await response.json();
+  
+    const leaderboard = document.getElementById('leaderboard');
+    leaderboard.innerHTML = leaders
+      .map(
+        (leader) =>
+          `<p>${leader.nickname} — ${leader.score} points, Time: ${leader.play_time}</p>`
+      )
+      .join('');
+  }
 
 function moveSnake() {
     const tail = snake.pop(); //видаляє останній елемент масиву snake (хвіст змії)
@@ -217,13 +217,11 @@ function moveSnake() {
     ) {
         clearInterval(interval);
         clearInterval(timerInterval); //зупиняємо таймер при програші
-        showEndGameModal(); // Додаємо виклик модального вікна
+        endGame(); // Викликаємо endGame, якщо зіткнення або вихід за межі
         return;
     }
 
     snake.unshift(head);
-    cells[head].innerText = snakeEmoji; //додано
-    cells[head].classList.add('snake'); //додано
 
     if (cells[head].classList.contains('food')) {
         updateScore(10);
