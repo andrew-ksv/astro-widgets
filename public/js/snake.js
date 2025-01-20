@@ -12,7 +12,7 @@ let interval; //змінна інтервалу, який контролює р�
 let totalTime = 0; //змінна для таймера
 let timerInterval; //змінна інтервалу для таймера, який оновлюється у функції updateTimer
 
-const foodEmojis = ['🥝', '🍒', '🍉', '🥑'];
+const foodEmojis = ['🥝', '🍒', '🍉', '🥑', '🍇'];
 const snakeEmojis = ['⬛', '🟪', '🟦'];
 const bonusEmoji = '⭐';
 const debuffEmoji = '🕳️';
@@ -94,7 +94,8 @@ function getValidStartPosition() { //ф-ція яка визначає поча�
 function randomFood() {
     do {
         foodIndex = Math.floor(Math.random() * cells.length);
-    } while (cells[foodIndex].classList.contains('border') || cells[foodIndex].classList.contains('snake'));
+    } while (cells[foodIndex].classList.contains('border') || 
+            cells[foodIndex].classList.contains('snake')); //перевірка на допустимість клітинки
    
     const randomFoodEmoji = foodEmojis[Math.floor(Math.random() * foodEmojis.length)];
     cells[foodIndex].innerText = randomFoodEmoji;
@@ -104,10 +105,10 @@ function randomFood() {
 
 function spawnItems() {
     setInterval(() => {
-        if (Math.random() < 0.15) { // 10% ймовірність для бонусу
+        if (Math.random() < 0.15) { // 15% ймовірність для бонусу
             spawnBonus();
         }
-        if (Math.random() < 0.25) { // 15% ймовірність для дебафу
+        if (Math.random() < 0.15) { // 15% ймовірність для дебафу
             spawnDebuff();
         }
     }, 12000); // кожні 12 секунд
