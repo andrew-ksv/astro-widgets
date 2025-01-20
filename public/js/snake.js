@@ -156,49 +156,11 @@ function spawnDebuff() {
     })(debuffIndex), 8000); //дебаф зникає через 8 секунд
 }
 
-function endGame() {
-    clearInterval(interval);
-    clearInterval(timerInterval);
-    document.getElementById('nickname-modal').style.display = 'block';
-  }
-  
-  document.getElementById('submit-nickname').addEventListener('click', async () => {
-    const nickname = document.getElementById('nickname').value;
-    const score = parseInt(document.getElementById('score').textContent.split(': ')[1]);
-    const playTime = document.getElementById('timer').textContent.split(': ')[1];
-  
-    const response = await fetch('/api/submitScore', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nickname, score, play_time: playTime }),
-    });
-  
-    if (response.ok) {
-      alert('Score submitted!');
-      document.getElementById('nickname-modal').style.display = 'none';
-      updateLeaderboard();
-    } else {
-      alert('Failed to submit score');
-    }
-  });
-
-  // Обробник події для кнопки Cancel
-  document.getElementById('cancel-nickname').addEventListener('click', () => {
-    document.getElementById('nickname-modal').style.display = 'none'; // Приховуємо модальне вікно
-});
-  
-  async function updateLeaderboard() {
-    const response = await fetch('/api/leaderboard');
-    const leaders = await response.json();
-  
-    const leaderboard = document.getElementById('leaderboard');
-    leaderboard.innerHTML = leaders
-      .map(
-        (leader) =>
-          `<p>${leader.nickname} — ${leader.score} points, Time: ${leader.play_time}</p>`
-      )
-      .join('');
-  }
+// function endGame() {
+//     clearInterval(interval);
+//     clearInterval(timerInterval);
+//     document.getElementById('nickname-modal').style.display = 'block';
+//   }
 
 function moveSnake() {
     const tail = snake.pop(); //видаляє останній елемент масиву snake (хвіст змії)
@@ -217,7 +179,7 @@ function moveSnake() {
     ) {
         clearInterval(interval);
         clearInterval(timerInterval); //зупиняємо таймер при програші
-        endGame(); // Викликаємо endGame, якщо зіткнення або вихід за межі
+        // endGame(); // Викликаємо endGame, якщо зіткнення або вихід за межі
         return;
     }
 
