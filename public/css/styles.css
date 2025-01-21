@@ -1,12 +1,12 @@
 html, body {
     margin: 0;
-    height: auto;
+    height: 100vh;
     
 }
 body {
     background: radial-gradient(at center top, #1B2735, #090A0F);
     margin: 0;
-    height: 100vh; /* body займає всю висоту екрану */
+    /* height: 100vh; */
     overflow-x: hidden;
     background-size: cover; 
     background-repeat: no-repeat;
@@ -67,7 +67,7 @@ body {
     z-index: 1; 
     width: 25%;
     max-width: 400px;
-    height: auto;
+    height: auto; /* 100% - по розміру контенту */
     background-image: linear-gradient( 109.6deg, rgb(52, 101, 101) 11.2%, rgb(51, 57, 100) 91.1% );
     box-shadow: 6px 6px 10px 0px rgb(0, 0, 0),
     inset 0px 0px 26px 2px rgba(0,0,0,0.49);
