@@ -111,7 +111,7 @@ function spawnItems() {
         if (Math.random() < 0.15) { // 15% ймовірність для дебафу
             spawnDebuff();
         }
-    }, 12000); // кожні 12 секунд
+    }, 15000); // кожні 15 секунд
 }
 
 function spawnBonus() {
