@@ -11,6 +11,7 @@ app.use('/api/moon', require('./api/moon'));
 app.use('/api/k-index', require('./api/k-index'));
 app.use('/api/astro-pics', require('./api/astro-pics'));
 app.use('/api/news', require('./api/news'));
+app.use('/api/latest-alert', require('./api/latest-alert'));
 
 //Starting the server
 app.listen(PORT, () => {
