@@ -1,7 +1,7 @@
 .container-for-news {
     position: relative;
     z-index: 1;
-    max-width: 800px;
+    width: 55%;
     margin: 0 auto;
     margin-top: 2%;
     padding: 20px;
@@ -43,4 +43,10 @@
 }
 .article a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container-for-news {
+        width: 90%;
+    }
 }

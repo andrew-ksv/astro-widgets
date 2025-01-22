@@ -14,7 +14,7 @@ async function fetchLatestAlert() {
     const alertContainer = document.getElementById('alert-container');
     alertContainer.innerHTML = `
       <p>Date: ${latestAlert.issue_datetime}</p>
-      <div>Message: ${formattedMessage}</div>
+      <div>${formattedMessage}</div>
     `;
   } catch (error) {
     console.error('Error fetching latest alert:', error);
