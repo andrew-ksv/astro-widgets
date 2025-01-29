@@ -1,7 +1,9 @@
 .heading {
-    color: rgb(197, 197, 197);
+    color: #337ecf;
     text-align: center;
     font-size: 1.3rem;
     font-family: Arial, Helvetica, sans-serif;
     margin: 8px;
+    position: relative;
+    z-index: 2;
 }
