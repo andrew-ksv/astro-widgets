@@ -28,6 +28,48 @@ let debuffItems = [];
 let starItems = [];
 let bonusItems = [];
 
+const API_URL = 'https://backend-leaderboard-59kf.onrender.com/api/scores';
+
+function formatTime(seconds) {
+  const mm = String(Math.floor(seconds / 60)).padStart(2, '0');
+  const ss = String(seconds % 60).padStart(2, '0');
+  return `${mm}:${ss}`;
+}
+
+async function sendScore({ nickname, score, time }) {
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nickname, score, time })
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || 'Failed to save score');
+  }
+
+  return res.json();
+}
+
+async function loadLeaderboard() {
+  const res = await fetch(`${API_URL}/top10`);
+  const scores = await res.json();
+
+  const board = document.getElementById('leaderboard');
+  board.innerHTML = '';
+
+  scores.forEach((s, i) => {
+    board.innerHTML += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${s.nickname}</td>
+        <td>${s.score}</td>
+        <td>${s.time}</td>
+      </tr>
+    `;
+  });
+}
+
 function createGrid() { //ф-ція створення сітки gridSize X gridSize, додавання її до HTML-елемента game
     game.innerHTML = ''; //очищення попереднього вмісту контейнера game
     for (let i = 0; i < gridSize * gridSize; i++) {
@@ -157,11 +199,11 @@ function spawnDebuff() {
     })(debuffIndex), 8000); //дебаф зникає через 8 секунд
 }
 
-// function endGame() {
-//     clearInterval(interval);
-//     clearInterval(timerInterval);
-//     document.getElementById('nickname-modal').style.display = 'block';
-//   }
+function endGame() {
+    clearInterval(interval);
+    clearInterval(timerInterval);
+    document.getElementById('nickname-modal').style.display = 'block';
+}
 
 function moveSnake() {
     const tail = snake.pop(); //видаляє останній елемент масиву snake (хвіст змії)
@@ -180,7 +222,7 @@ function moveSnake() {
     ) {
         clearInterval(interval);
         clearInterval(timerInterval); //зупиняємо таймер при програші
-        // endGame(); // Викликаємо endGame, якщо зіткнення або вихід за межі
+        endGame(); // Викликаємо endGame, якщо зіткнення або вихід за межі
         return;
     }
 
@@ -255,3 +297,43 @@ document.getElementById('down').addEventListener('click', () => controlDirection
 document.getElementById('restart').addEventListener('click', startGame);
 
 startGame();
+loadLeaderboard();
+
+let isSendingScore = false;
+
+document.getElementById('submit-nickname')
+  .addEventListener('click', async () => {
+
+    if (isSendingScore) return;
+    isSendingScore = true;
+
+    const nickname = document.getElementById('nickname').value.trim();
+    if (!nickname) {
+      isSendingScore = false;
+      return;
+    }
+
+    document.getElementById('nickname-modal').style.display = 'none';
+
+    try {
+      await sendScore({
+        nickname,
+        score,
+        time: formatTime(totalTime)
+      });
+
+      loadLeaderboard();
+
+    } catch (err) {
+      alert('Server is waking up, try again in a few seconds');
+    } finally {
+      isSendingScore = false;
+    }
+});
+
+document
+  .getElementById('cancel-nickname')
+  .addEventListener('click', () => {
+    document.getElementById('nickname-modal').style.display = 'none';
+    document.getElementById('nickname').value = '';
+  });

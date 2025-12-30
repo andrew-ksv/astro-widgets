@@ -12,9 +12,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    /* max-width: 1200px; */
-    width: 60%;
+    /* width: 100%; */
+    /*max-width: 1200px; */
+    width: 80%;
     gap: 20px;
 }
 .main-game {
@@ -125,7 +125,7 @@ body {
     font-weight: bold;
 }
 /* .ad {
-    
+ width: 150px;       
 } */
 
 /* для модального вікна */
