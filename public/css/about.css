@@ -5,7 +5,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background: #111111;
+    background: #141414;
     border-radius: 12px;
     box-shadow: 6px 6px 10px 0px rgb(0, 0, 0);
     margin-top: 1%;
@@ -19,7 +19,7 @@
 .about-section p, ul {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: rgb(197, 197, 197);
+    color: rgb(194, 194, 194);
 }
 .about-section p:last-child {
     margin-bottom: 0;
