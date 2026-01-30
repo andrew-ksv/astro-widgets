@@ -10,11 +10,15 @@ async function fetchNews() {
         articles.forEach(article => {
             const articleElement = document.createElement('div');
             articleElement.classList.add('article');
+
+        const publishedDate = new Date(article.publishedAt);
+        const formattedDate = publishedDate.toLocaleDateString("en-GB"); //dd/mm/yyyy
+
             articleElement.innerHTML = `
                 <img src="${article.image}" alt="${article.title}">
                 <h2>${article.title}</h2>
                 <p>${article.description}</p>
-                <p>Published at ${article.publishedAt}</p>
+                <p>Published at ${formattedDate}</p>
                 <a href="${article.url}" target="_blank">Read More</a>
                 `;
                     newsContainer.appendChild(articleElement);
