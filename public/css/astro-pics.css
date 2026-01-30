@@ -25,6 +25,7 @@
     overflow: hidden;
     /* width: 100%; */
     text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
 }
 /* Стиль для зображень */
 .content-data img {
@@ -38,7 +39,16 @@
     font-size: 1rem;
     padding: 0 10px;
 }
-
+ @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 /* Адаптивність 📱------------------------------------------------------- */
 @media (max-width: 768px) {
     .gallery {

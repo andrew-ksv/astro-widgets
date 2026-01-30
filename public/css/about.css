@@ -27,7 +27,12 @@
 .about-section {
     animation: fadeIn 1.5s ease-in-out;
 }
-
+.subtitle {
+  color: #337ecf;
+}
+.about-section {
+  text-indent: 1.5em;
+}
   @keyframes fadeIn {
     0% {
       opacity: 0;

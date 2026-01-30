@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      </script>
+      <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="navbar">
+        <img class="planet" src="/images/planet2.gif" alt="planet">
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="astro-pics.html">Astro gallery</a>
+            <nav>
+                <select id="nav-dropdown" onchange="location = this.value;">
+                  <option value="" disabled selected>Select a page</option>
+                  <option value="isstracker.html">ISS Tracker</option>
+                  <option value="aurora.html">Aurora</option>
+                  <option value="cosmic-snake.html">Cosmic Snake</option>
+                  <option value="about.html">About the project</option>
+                  <option value="reference.html">Reference</option>
+                  <option value="https://forms.office.com/r/D0GVww9kb7">Feedback</option>
+                  
+                </select>
+              </nav>
+        </div>
+    </div>
+
+    <section class="about-section reference">
+        <h1>Astronomical Data Reference and Explanations</h1>
+        <h2 class="subtitle">Planetary K-index</h2>
+        <p>Planetary K-index shows the level of Earth’s geomagnetic activity.
+        Values range from 0 to 9: the higher the number, the stronger the magnetic storm.</p>
+        <p>This index is important for understanding space weather effects, such as:</p>
+            <ul style="list-style-type: none;">
+                <li>🔷 Disruptions in satellite communications and GPS signals</li>
+                <li>🔷 Increased risk for power grid disturbances in high-latitude regions</li>
+                <li>🔷 Enhanced visibility of auroras (Northern and Southern Lights) at lower latitudes</li>
+            </ul>
+        
+        <h2 class="subtitle">Auroras</h2>
+        <p>Auroras, also known as polar lights, are natural light displays predominantly
+            seen in high-latitude regions near the Arctic and Antarctic. In the Northern Hemisphere,
+            they are often called Aurora Borealis (Northern Lights), while in the Southern Hemisphere
+            they are referred to as Aurora Australis (Southern Lights).</p>
+        <p>Auroras occur when charged particles from the Sun, mainly electrons and protons,
+            collide with Earth's magnetic field and upper atmosphere. These particles excite the gases
+            in the atmosphere - mostly oxygen and nitrogen - which then emit visible light. The colors of the
+            aurora depend on which gases are involved and their altitude:</p>
+            <ul style="list-style-type: none;">
+                <li>🔷 Green – the most common, from oxygen at lower altitudes (~100 km).</li>
+                <li>🔷 Red – oxygen at higher altitudes (~200-300 km).</li>
+                <li>🔷 Purple and blue – nitrogen at lower altitudes.</li>
+            </ul>
+        <p>The Planetary K-index directly affects the visibility of auroras.
+            When geomagnetic activity is low, auroras are faint and usually limited to polar regions.
+            As geomagnetic activity increases, auroras become brighter, more dynamic, and can be observed
+            farther from the poles. During strong geomagnetic storms (K-index 5-9), auroras may be visible at much lower
+            latitudes than usual.</p>
+
+        <h2 class="subtitle">Sun & Moon Information</h2>
+        <p>The Sun and Moon widgets display sunrise and sunset times, as well as moonrise,
+            moonset, and moon illumination percentage, based on the selected location.</p>
+            <ul style="list-style-type: none;">
+                <li>🔷 Location selection determines the geographic coordinates used for calculations.
+                    Sunrise and sunset times vary depending on latitude, longitude, and the current date.</li>
+                <li>🔷 Sunrise / Sunset indicate the moments when the upper edge of the Sun crosses the horizon.</li>
+                <li>🔷 Moonrise is the time when the Moon appears above the local horizon and becomes visible in the sky,
+                    while Moonset is the time when it passes below the horizon and is no longer visible.</li>
+                <li>🔷 Moon illumination (%) shows how much of the Moon’s visible surface is illuminated by the Sun.</li>
+            </ul>
+        <p>These values are useful for daily planning, astronomical observations,
+            and understanding how sunlight and moonlight change throughout the day.</p>
+
+        <h2 class="subtitle">Space Weather Alert</h2>
+        <p>The Space Weather Alert widget provides warnings about upcoming or ongoing geomagnetic disturbances,
+            based on data from NOAA’s Space Weather Prediction Center (SWPC).</p>
+        <p>This widget helps users quickly assess space weather risks, aurora visibility,
+            and potential impacts on technology during geomagnetic events.</p>
+
+        <h2 class="subtitle">Astro Gallery</h2>
+        <p>Astro Gallery is a visual feed of random astronomical images, updated on each visit.
+            The gallery presents a stream-like layout, similar to a social media feed, showcasing
+            captivating photos of space. Each image includes a detailed description, providing
+            context about what is shown - such as planets, nebulae, galaxies, the Sun, the Moon,
+            or astronomical events - along with scientific or observational details.</p>
+      </section>
+      
+    <footer>
+        <p>Astro Widgets <span id="currentYear"></span></p>
+    </footer>
+    <script src="/js/script.js"></script>
+</body>
+</html>
