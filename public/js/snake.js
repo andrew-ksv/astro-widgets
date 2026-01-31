@@ -36,19 +36,50 @@ function formatTime(seconds) {
   return `${mm}:${ss}`;
 }
 
-async function sendScore({ nickname, score, time }) {
-  const res = await fetch(API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nickname, score, time })
-  });
-
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.message || 'Failed to save score');
+function validateNickname(nickname) {
+  if (!nickname) {
+    return 'Nickname is required';
   }
 
-  return res.json();
+  if (nickname.length < 2) {
+    return 'Nickname must be at least 2 characters';
+  }
+
+  if (nickname.length > 20) {
+    return 'Nickname must be at most 20 characters';
+  }
+
+  //дозволені: букви, цифри, _, -
+  if (!/^[a-zA-Z0-9_-]+$/.test(nickname)) {
+    return 'Nickname contains invalid characters';
+  }
+
+  return null;
+}
+
+async function sendScore({ nickname, score, time }) {
+  let res;
+
+  try {
+    res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nickname, score, time })
+    });
+  } catch {
+    const error = new Error('SERVER_SLEEP');
+    throw error;
+  }
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    const error = new Error(data.error || 'Failed to save score');
+    error.status = res.status;
+    throw error;
+  }
+
+  return data;
 }
 
 async function loadLeaderboard() {
@@ -307,8 +338,12 @@ document.getElementById('submit-nickname')
     if (isSendingScore) return;
     isSendingScore = true;
 
-    const nickname = document.getElementById('nickname').value.trim();
-    if (!nickname) {
+    const nicknameInput = document.getElementById('nickname');
+    const nickname = nicknameInput.value.trim();
+
+    const validationError = validateNickname(nickname);
+    if (validationError) {
+      alert(validationError);
       isSendingScore = false;
       return;
     }
@@ -325,7 +360,13 @@ document.getElementById('submit-nickname')
       loadLeaderboard();
 
     } catch (err) {
-      alert('Server is waking up, try again in a few seconds');
+      if (err.message === 'SERVER_SLEEP') {
+        alert('Server is waking up, try again in a few seconds');
+      } else if (err.status === 400) {
+        alert(err.message);
+      } else {
+        alert('Something went wrong. Please try again later.');
+      }
     } finally {
       isSendingScore = false;
     }
