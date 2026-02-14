@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+const CACHE_DURATION = 30 * 60; //30 хв
+
 module.exports = async (req, res) => {
   try {
     const response = await axios.get('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json');
@@ -12,6 +14,12 @@ module.exports = async (req, res) => {
       a_running: a_running,
       station_count: station_count,
     };
+
+    // HTTP CDN кешування через Cache-Control
+    res.setHeader(
+      'Cache-Control',
+      `s-maxage=${CACHE_DURATION}, stale-while-revalidate`
+    );
 
     res.status(200).json(result);
   } catch (error) {
