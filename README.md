@@ -7,7 +7,7 @@ The following is a list of planned services and features for the **Astro Widgets
 
 ### Planned Services:
 - [x] **Magnetic storm current info**
-- [ ] **Magnetic storm forecast**
+- [x] **Magnetic storm forecast**
 - [ ] **Weather forecast**
 - [x] **Real-time astronomy data**
 - [x] **Online broadcast from the ISS with a view of the Earth**
