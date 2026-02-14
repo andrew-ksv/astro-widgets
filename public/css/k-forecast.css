@@ -1,0 +1,84 @@
+.forecast-note {
+  font-style: italic;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* скрол */
+}
+
+.widget-kpforecast .table-wrapper {
+  display: block;
+}
+
+.widget-kpforecast {
+  width: 45%;
+}
+
+.widget-container-kpforecast p {
+  padding-left: 5%;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 90%;
+  margin: 0 auto;
+}
+
+th, td {
+  padding: 8px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+th {
+  background: #263243;
+  font-weight: 600;
+}
+
+td.time {
+  text-align: left;
+  font-weight: 500;
+  background: #35445a;
+}
+
+td:not(:first-child) {
+  background: #0f173b;
+}
+
+.kp-0, .kp-1 { color: rgb(109, 254, 65); }
+.kp-2, .kp-3 { color: rgb(109, 254, 65); }
+.kp-4 { color: rgb(109, 254, 65); }
+.kp-5, .kp-6 { color: rgb(254, 251, 65); }
+.kp-7, .kp-8, .kp-9 { color: rgb(254, 65, 65); }
+
+/* Адаптивність 📱---------------------------------------------------------- */
+@media (max-width: 768px) {
+  .kp-widget {
+    padding: 14px;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th, td {
+    padding: 6px 8px;
+  }
+
+  .kp-widget h2 {
+    font-size: 16px;
+  }
+
+  .widget-kpforecast {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .widget-kpforecast {
+        width: 70%;
+        height: auto;
+    }
+}

@@ -212,4 +212,7 @@ footer {
         width: 30%;
         height: auto;
     }
+    .widget-alert {
+        width: 70%;
+    }
 }

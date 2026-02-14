@@ -6,6 +6,7 @@
     <title>Astro Widgets</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/news.css">
+    <link rel="stylesheet" href="/css/k-forecast.css">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -39,7 +40,7 @@
 <div class="widgetset">
         <div class="widget">
             <div class="widget-container">
-              <p class="widget-title">Moon Info</p>
+              <p class="widget-title">Moon info</p>
               <input type="text" id="city-input" placeholder="Enter city name" />
               <button id="city-btn">Ok</button>
                 <p data-city="true">Loading...</p>
@@ -59,7 +60,7 @@
 
         <div class="widget">
             <div class="widget-container">
-              <p class="widget-title">Sun Info</p>
+              <p class="widget-title">Sun info</p>
                 <p data-city="true">Loading...</p>
                 <!-- <p id="sun-status">Loading...</p> -->
                 <div class="astro-details">
@@ -72,13 +73,27 @@
             </div>
         </div>
 
-            <div class="widget">
-                <div class="widget-container">
-                    <p class="widget-title">Current Magnetic Storm Info</p>
-                        <p id="storm-time"></p>
-                        <p id="storm-kp"></p>
-                </div>
+        <div class="widget">
+            <div class="widget-container">
+                <p class="widget-title">Observed geomagnetic data</p>
+                    <p id="storm-time"></p>
+                    <p id="storm-kp"></p>
             </div>
+         </div>
+
+        <div class="widget widget-kpforecast">
+            <div class="widget-container-kpforecast">
+                <p class="widget-title">Geomagnetic forecast</p>
+                <div class="table-wrapper">
+                <table id="kpTable">
+                <thead></thead>
+                <tbody></tbody>
+                </table>
+                </div>
+                <p class="forecast-note">The forecast Kp index may differ from observations</p>
+            </div>
+         </div>
+
 </div>
 
 <div class="widgetset">
@@ -102,5 +117,6 @@
 <script src="/js/solar-storm.js"></script>
 <script src="/js/news.js"></script>
 <script src="/js/alert.js"></script>
+<script src="/js/k-forecast-table.js"></script>
 </body>
 </html>

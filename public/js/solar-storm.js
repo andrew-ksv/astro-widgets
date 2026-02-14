@@ -21,7 +21,7 @@ async function fetchMagneticStormData() {
         }
   
         const kpElement = document.getElementById('storm-kp');
-        kpElement.textContent = `Planetary K index: ${kp}`;
+        kpElement.textContent = `Kp index: ${kp}`;
         kpElement.style.color = kpColor;
   
     } catch (error) {
