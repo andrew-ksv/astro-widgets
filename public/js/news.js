@@ -24,7 +24,7 @@ async function fetchNews() {
                     newsContainer.appendChild(articleElement);
                 });
     } catch (error) {
-        newsContainer.innerHTML = `<p>Failed to load news: ${error.message}</p>`;
+        newsContainer.innerHTML = `<p>Failed to load news. Please try again later.</p>`;
     }
 }
 fetchNews();
