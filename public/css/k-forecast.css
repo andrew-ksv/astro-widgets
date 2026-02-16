@@ -32,25 +32,25 @@ th, td {
 }
 
 th {
-  background: #263243;
+  background: #50637e;
   font-weight: 600;
 }
 
 td.time {
   text-align: left;
   font-weight: 500;
-  background: #35445a;
+  background: #677a95;
 }
 
 td:not(:first-child) {
-  background: #0f173b;
+  background: #131b3d;
 }
 
-.kp-0, .kp-1 { color: rgb(109, 254, 65); }
-.kp-2, .kp-3 { color: rgb(109, 254, 65); }
-.kp-4 { color: rgb(109, 254, 65); }
-.kp-5, .kp-6 { color: rgb(254, 251, 65); }
-.kp-7, .kp-8, .kp-9 { color: rgb(254, 65, 65); }
+.kp-0, .kp-1 { color: rgb(98, 235, 57); }
+.kp-2, .kp-3 { color: rgb(98, 235, 57); }
+.kp-4 { color: rgb(98, 235, 57); }
+.kp-5, .kp-6 { color: rgb(234, 231, 61); }
+.kp-7, .kp-8, .kp-9 { color: rgb(234, 59, 59); }
 
 /* Адаптивність 📱---------------------------------------------------------- */
 @media (max-width: 768px) {

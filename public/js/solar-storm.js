@@ -13,11 +13,11 @@ async function fetchMagneticStormData() {
         let kpColor;
   
         if (kp >= 7) {
-            kpColor = 'rgb(254, 65, 65)';
+            kpColor = 'rgb(234, 59, 59)';
         } else if (kp >= 5) {
-            kpColor = 'rgb(254, 251, 65)';
+            kpColor = 'rgb(234, 231, 61)';
         } else {
-            kpColor = 'rgb(109, 254, 65)';
+            kpColor = 'rgb(98, 235, 57)';
         }
   
         const kpElement = document.getElementById('storm-kp');
