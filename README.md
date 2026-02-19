@@ -10,8 +10,6 @@ The following is a list of planned services and features for the **Astro Widgets
 - [x] **Magnetic storm forecast**
 - [ ] **Weather forecast**
 - [x] **Real-time astronomy data**
-- [x] **Online broadcast from the ISS with a view of the Earth**
-- [x] **The Spot The Station widget**
 - [ ] **Asteroids tracker**  
 - [x] **Astronomy news feed**  
 - [x] **Astrophotography gallery**  
