@@ -1,16 +1,15 @@
 name: Playwright Smoke Tests
 
 on:
+  pull_request:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   smoke-tests:
     runs-on: ubuntu-latest
-    env:
-      BASE_URL: https://${{ env.VERCEL_URL }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,5 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Playwright Smoke Tests (Chromium only)
+      - name: Start local server
+        run: node server.js &
+
+      - name: Run Playwright Smoke Tests (Chromium)
         run: npx playwright test tests/e2e/smok --project=chromium --reporter=list
